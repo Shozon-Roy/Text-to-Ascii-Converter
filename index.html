@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text to Ascii Converter - Shozon Roy</title> 
+</head>
+
+  <body>
+    <div align= "center">
+    <input id= "input" type="textarea"/>
+    </div>
+   <br/>
+    <div align="center">
+       <input id = "Ascii_to_Binary" name= "select"
+ type= "radio" value= "no"/>
+ <label for"Ascii_to_Binary">ASCII to BINARY</label>
+    <br/>
+ <input id= "Binary_to_Ascii" name= "select" type= "radio" value = "yes" />
+ <label for"Binary_to_Ascii">BINARY to ASCII</label>
+ <br/><br/>
+ 
+    </div>
+    <div align="center">
+    <button onclick="convert()">Convert</button>
+    </div>
+    <br/>
+    <div align= "center">
+    <input type= "textarea" id= "output" disabled/>
+    </div>
+    
+    <style type="text/css" media="all">
+      body{
+        background-color: #ecf0f3;
+        padding: 30px;
+      }
+    
+      #input, #output{
+        height: 100px; 
+        width: 240px;
+        padding: 5px;
+        font-size: 20px;
+        text-align: center;
+        border: none;
+        outline: none;
+        box-shadow: -3px 3px 4px grey, 3px -3px 3px #fff;
+      }
+       button{
+      width: 240px;
+      height: 35px;
+      border: none;
+      background-color:#00A400;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 15px;
+      box-shadow: -3px 3px 4px grey, 3px -3px 3px #fff;
+}
+    </style>
+    
+    <script>
+var output = document.getElementById("output");
+var input = document.getElementById("input");
+var one = document.getElementById("Binary_to_Ascii");
+var two = document.getElementById("Ascii_to_Binary");
+function decimalToBinary(decimal){
+  return (decimal >>> 0).toString(2);
+}
+     function convert(){
+  if(one.checked == true){
+input.style.placeHolder = "Input Binary Code.";
+function binaryToDecimal(Binary){
+return (parseInt(Binary, 2) );
+}
+var Decimal = binaryToDecimal(parseInt(input.value));
+output.value = String.fromCharCode(Decimal);
+}
+else if(two.checked == true){
+  //block mto convert text to binary
+var Num = input.value.charCodeAt(0);    
+output.value = decimalToBinary(Num);
+}
+else(alert("Please Select an Option!!"))
+     }
+    </script>
+    
+  <p style= "text-align:center">Text to Ascii Converter</br>By ♡︎ Shozon Roy ©2023 </p>  
+  </body>
+</html>
